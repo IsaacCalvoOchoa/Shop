@@ -39,7 +39,7 @@
                 {
                     return null;
                 }
-                return $"https://localhost:44387{this.ImageUrl.Substring(1)}";
+                return $"https://shoptutorial.azurewebsites.net{this.ImageUrl.Substring(1)}";
             }
         }
     }
