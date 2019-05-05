@@ -6,6 +6,7 @@
     using Entities;
     using Microsoft.AspNetCore.Identity;
     using Helpers;
+    using System.Collections.Generic;
 
     public class SeedDb
     {
@@ -27,6 +28,23 @@
             await this.userHelper.CheckRoleAsync("Admin");
             await this.userHelper.CheckRoleAsync("Customer");
 
+            if (!this.context.Countries.Any())
+            {
+                var cities = new List<City>();
+                cities.Add(new City { Name = "Mexicali" });
+                cities.Add(new City { Name = "Guadalajara" });
+                cities.Add(new City { Name = "Monterrey" });
+
+                this.context.Countries.Add(new Country
+                {
+                    Cities = cities,
+                    Name = "Mexico"
+                });
+
+                await this.context.SaveChangesAsync();
+            }
+
+
 
             var user = await this.userHelper.GetUserByEmailAsync("isaaccalvoochoa@gmail.com");
             if (user == null)
@@ -36,7 +54,11 @@
                     FirstName = "Isaac",
                     LastName = "Calvo",
                     Email = "isaaccalvoochoa@gmail.com",
-                    UserName = "isaaccalvoochoa@gmail.com"
+                    UserName = "isaaccalvoochoa@gmail.com",
+                    Address = "Deveza 1241, Barcelona",
+                    CityId = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault().Id,
+                    City = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault()
+
                 };
 
                 var result = await this.userHelper.AddUserAsync(user, "123456");
