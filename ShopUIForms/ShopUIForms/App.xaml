@@ -5,8 +5,13 @@
              x:Class="ShopUIForms.App">
     <Application.Resources>
         <ResourceDictionary>
+            
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"/>
+
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://shopmexicali.azurewebsites.net</x:String>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,13 +1,16 @@
-﻿using ShopUIForms.ViewModels;
-using ShopUIForms.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace ShopUIForms
+﻿namespace ShopUIForms
 {
+    using ShopUIForms.ViewModels;
+    using ShopUIForms.Views;
+    using System;
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+
     public partial class App : Application
     {
+        public static NavigationPage Navigator { get; internal set; }
+        public static MasterPage Master { get; internal set; }
+
         public App()
         {
             InitializeComponent();

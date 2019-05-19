@@ -41,7 +41,7 @@
                 {
                     return null;
                 }
-                return $"https://shoptutorial.azurewebsites.net{this.ImageUrl.Substring(1)}";
+                return $"https://shopmexicali.azurewebsites.net{this.ImageUrl.Substring(1)}";
             }
         }
     }
