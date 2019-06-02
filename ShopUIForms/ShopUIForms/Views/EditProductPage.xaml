@@ -1,22 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-         	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-         	x:Class="ShopUIForms.Views.AddProductPage"
-         	BindingContext="{Binding Main, Source={StaticResource Locator}}"
-         	Title="Add Product">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ShopUIForms.Views.EditProductPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Edit Product">
     <ContentPage.Content>
         <ScrollView
-        	BindingContext="{Binding AddProduct}">
+        	BindingContext="{Binding EditProduct}">
             <StackLayout
             	Padding="10">
                 <Image
-                	Source="{Binding ImageSource}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
-                    </Image.GestureRecognizers>
+                	HeightRequest="150"
+                	Source="{Binding Product.ImageFullPath}">
                 </Image>
                 <Label
-                    FontSize="Micro"
+                	FontSize="Micro"
                 	HorizontalOptions="Center"
                 	Text="Tap the image to change it...">
                 </Label>
@@ -35,7 +36,7 @@
                     	Grid.Column="1"
                     	Grid.Row="0"
                     	Placeholder="Product name..."
-                    	Text="{Binding Name}">
+                    	Text="{Binding Product.Name}">
                     </Entry>
                     <Label
                     	Grid.Column="0"
@@ -48,22 +49,36 @@
                     	Grid.Row="1"
                     	Keyboard="Numeric"
                     	Placeholder="Product price..."
-                    	Text="{Binding Price}">
+                    	Text="{Binding Product.Price}">
                     </Entry>
                 </Grid>
                 <ActivityIndicator
                 	IsRunning="{Binding IsRunning}"
                 	VerticalOptions="CenterAndExpand">
                 </ActivityIndicator>
-                <Button
-                	BackgroundColor="Navy"
-                	BorderRadius="23"
-                	Command="{Binding SaveCommand}"
-                	HeightRequest="46"
-                	IsEnabled="{Binding IsEnabled}"
-                	Text="Save"
-                	TextColor="White">
-                </Button>
+                <StackLayout
+                	Orientation="Horizontal">
+                    <Button
+                    	BackgroundColor="Navy"
+                    	BorderRadius="23"
+                    	Command="{Binding SaveCommand}"
+                    	HeightRequest="46"
+                    	HorizontalOptions="FillAndExpand"
+                    	IsEnabled="{Binding IsEnabled}"
+                    	Text="Save"
+                    	TextColor="White">
+                    </Button>
+                    <Button
+                    	BackgroundColor="Red"
+                    	BorderRadius="23"
+                    	Command="{Binding DeleteCommand}"
+                    	HeightRequest="46"
+                    	HorizontalOptions="FillAndExpand"
+                    	IsEnabled="{Binding IsEnabled}"
+                    	Text="Delete"
+                    	TextColor="White">
+                    </Button>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
