@@ -14,6 +14,8 @@
     {
         private static MainViewModel instance;
 
+        public User User { get; set; }
+
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
         public TokenResponse Token { get; set; }
@@ -29,6 +31,14 @@
         public AddProductViewModel AddProduct { get; set; }
 
         public EditProductViewModel EditProduct { get; set; }
+
+        public RegisterViewModel Register { get; set; }
+
+        public RememberPasswordViewModel RememberPassword { get; set; }
+
+        public ProfileViewModel Profile { get; set; }
+
+        public ChangePasswordViewModel ChangePassword { get; set; }
 
         public ICommand AddProductCommand { get { return new RelayCommand(this.GoAddProduct); } }
 
@@ -53,6 +63,13 @@
             Icon = "ic_action_info",
             PageName = "AboutPage",
             Title = "About"
+        },
+
+        new Menu
+        {
+            Icon = "ic_person",
+            PageName = "ProfilePage",
+            Title = "Modify User"
         },
 
         new Menu

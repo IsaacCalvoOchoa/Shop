@@ -143,4 +143,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\noImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SplashShopTutorial.png" />
+  </ItemGroup>
 </Project>
